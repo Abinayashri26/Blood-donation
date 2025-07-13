@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Donor List</title>
+    <style>
+        body {
+            background-image: url('https://t3.ftcdn.net/jpg/05/04/36/84/360_F_504368477_XGrt6brpAmFWPfjWGnPJD9bLU6Gi35yG.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+            text-align: center;
+            color: white;
+            padding: 30px;
+        }
+        
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        th,
+        td {
+            border: 1px solid white;
+            padding: 10px;
+        }
+        
+        th {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Registered Donors</h2>
+    <table id="donorTable">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>Location</th>
+        </tr>
+    </table>
+
+    <script>
+        const donorTable = document.getElementById("donorTable");
+        const donors = JSON.parse(localStorage.getItem('donors')) || [];
+
+        donors.forEach(donor => {
+            const row = donorTable.insertRow();
+            row.innerHTML = `<td>${donor.name}</td><td>${donor.age}</td><td>${donor.blood}</td><td>${donor.location}</td>`;
+        });
+    </script>
+</body>
+
+</html>
